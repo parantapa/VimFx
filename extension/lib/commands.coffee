@@ -556,6 +556,44 @@ command_Esc = (vim, event) ->
   else
     document.mozCancelFullScreen()
 
+# Open urls: First url, in current tab, next urls in new tabs
+helper_open_urls = (vim, urls) ->
+  vim.rootWindow.gBrowser.loadURI("http://" + urls[0], null, null, null, null)
+  for i in [1...urls.length] by 1
+    vim.rootWindow.gBrowser.addTab("http://" + urls[i], null, null, null, null, false)
+
+command_open_gmail = (vim) ->
+    helper_open_urls vim, ["gmail.com/"]
+
+command_open_calender = (vim) ->
+    helper_open_urls vim, ["google.com/calendar"]
+
+command_open_gs = (vim) ->
+    helper_open_urls vim, ["google.com/scholar"]
+
+command_open_news = (vim) ->
+    helper_open_urls vim, ["slashdot.org", "news.ycombinator.com", "telegraphindia.com"]
+
+command_open_social = (vim) ->
+    helper_open_urls vim, ["facebook.com", "twitter.com", "reddit.com"]
+
+command_open_blog = (vim) ->
+    helper_open_urls vim, ["lifehacker.com", "boingboing.net"]
+
+command_open_comics1 = (vim) ->
+    helper_open_urls vim, ["dilbert.com", "xkcd.com", "phdcomics.com/comics.php"]
+
+command_open_comics2 = (vim) ->
+    helper_open_urls vim, ["gocomics.com/calvinandhobbes",
+        "gocomics.com/garfield",
+        "gocomics.com/broomhilda",
+        "gocomics.com/bc",
+        "gocomics.com/wizardofid"]
+
+command_open_comics3 = (vim) ->
+    helper_open_urls vim, ["arcamax.com/thefunnies/hagarthehorrible",
+        "arcamax.com/thefunnies/beetlebailey",
+        "arcamax.com/thefunnies/peanuts"]
 
 # coffeelint: disable=max_line_length
 commands = [
@@ -621,6 +659,15 @@ commands = [
   new Command('misc',   'quote',                 command_quote,                 [['I']])
   new Command('misc',   'help',                  command_help,                  [['?']])
   new Command('misc',   'dev',                   command_dev,                   [[':']])
+
+  new Command('misc',   'open_gmail',            command_open_gmail,            [[',', 'm']])
+  new Command('misc',   'open_calender',         command_open_calender,         [[',', 'v']])
+  new Command('misc',   'open_news',             command_open_news,             [[',', 'n']])
+  new Command('misc',   'open_social',           command_open_social,           [[',', 's']])
+  new Command('misc',   'open_gs',               command_open_gs,               [[',', 'g', 's']])
+  new Command('misc',   'open_comics1',          command_open_comics1,          [[',', 'c', '1']])
+  new Command('misc',   'open_comics2',          command_open_comics2,          [[',', 'c', '2']])
+  new Command('misc',   'open_comics3',          command_open_comics3,          [[',', 'c', '3']])
 
   escapeCommand =
   new Command('misc',   'Esc',                   command_Esc,                   [['<escape>']])
