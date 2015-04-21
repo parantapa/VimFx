@@ -623,7 +623,7 @@ commands = [
   new Command('nav',    'scroll_page_up',        command_scroll_page_up,        [['<c-b>']])
 
   new Command('tabs',   'open_tab',              command_open_tab,              [['t']])
-  new Command('tabs',   'open_tab_serach',       command_open_tab_search,       [['T'], ['S']])
+  new Command('tabs',   'open_tab_search',       command_open_tab_search,       [['T'], ['S']])
   new Command('tabs',   'tab_prev',              command_tab_prev,              [['g', 'T']])
   new Command('tabs',   'tab_next',              command_tab_next,              [['g', 't']])
   new Command('tabs',   'tab_move_left',         command_tab_move_left,         [['g', 'J']])
