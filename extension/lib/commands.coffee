@@ -581,7 +581,7 @@ command_open_blog = (vim) ->
     helper_open_urls vim, ["lifehacker.com", "boingboing.net"]
 
 command_open_comics1 = (vim) ->
-    helper_open_urls vim, ["dilbert.com", "xkcd.com", "phdcomics.com/comics.php"]
+    helper_open_urls vim, ["dilbert.com", "xkcd.com", "phdcomics.com/comics.php", "www.commitstrip.com"]
 
 command_open_comics2 = (vim) ->
     helper_open_urls vim, ["gocomics.com/calvinandhobbes",
